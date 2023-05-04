@@ -19,6 +19,8 @@ const Home = () => {
       <Button className='mn-btn' variant='light' size='lg' href='/men' >SHOP MEN</Button>
       <Button className='wn-btn' variant='light' size='lg' href='/women'>SHOP WOMEN</Button>
 
+      <hr className='my-0'/><br/> 
+
       <p>AS SEEN IN :
 
         <img src='https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-featured-in-logo-5.svg'/>
@@ -32,6 +34,7 @@ const Home = () => {
         <img src='https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/recycled-shoe-store-featured-in-logo-1.svg'/>
 
       </p>
+      
     </div>
   );
 }

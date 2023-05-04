@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
-import { ProductsData } from './ProductsData';
+import { AdminProductsData } from './AdminProductsData';
 import { Card, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 
-const Collections = () => {
 
-  const [items, setItems] = useState(ProductsData);
-  const use = useNavigate();
+const AdminProducts = () => {
 
+  const [items, setItems] = useState(AdminProductsData);
+
+  const Remove = (e) => {
+    const Removeid = parseInt(e.target.id);
+    const Balancedata = state.filter((item)=>item.id!==Removeid);
+    setState(Balancedata);
+    }
+
+  
   return (
 
     <div>
-      <h1 style={{textAlign: 'center'}} className='bg-info text-white'>COLLECTIONS</h1><br/>
-      <h2 className='d-flex container'>Our Best Seller</h2><br/>
+      <h1 style={{textAlign: 'center'}} className='bg-info text-white'>ADD PRODUCTS</h1><br/>
+      <h2 className='d-flex container'></h2><br/>
     
       <div className='d-flex-column container'>
         <div className='row gap-5'>
@@ -28,9 +34,7 @@ const Collections = () => {
                 <Card.Title>{item.brand}</Card.Title>
                 <Card.Text>{item.type}</Card.Text> 
                 <h6>Price: ₹ {item.price}</h6>
-                
-                <Button onClick={()=>use(`/view/${item.id}`)} variant='outline-primary'>View Product</Button>
-                
+                <Button onClick={Remove}  id={item.id} variant='outline-danger'>Remove</Button>
               </Card.Body>
             </Card>
           ))}
@@ -40,4 +44,4 @@ const Collections = () => {
   );
 }
 
-export default Collections;
+export default AdminProducts;

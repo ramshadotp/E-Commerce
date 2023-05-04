@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './Copmponents/NavigationBar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './Copmponents/Home';
 import Collections from './Copmponents/Products/Collections';
 import Men from './Copmponents/Men';
@@ -12,26 +12,48 @@ import MyCart from './Copmponents/MyCart';
 import LogIn from './Copmponents/LogIn';
 import SignUp from './Copmponents/SignUp';
 import Footer from './Copmponents/Footer';
+import AdminPage from './Copmponents/Admin/AdminPage';
 import { Context } from './Copmponents/Context';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Users from './Copmponents/Admin/Users';
+import AdminProducts from './Copmponents/Admin/AdminProducts';
+
 
 function App() {
 
+
+  const location = useLocation();
+  const [admin, setAdmin] = useState(false);
+
+  useEffect(()=>{
+
+    if(location.pathname.includes("adminpage")){
+      setAdmin(true)
+    }else{
+      setAdmin(false)
+    }
+  },[location])
+
+
+
   const [state, setState] = useState([]);
+  const [signup, setSignup] = useState([]);
+
 
   const data = {
     state,
-    setState
+    setState,
+    signup,
+    setSignup
   }
+  
 
   return (
 
     <div>
 
-      <BrowserRouter>
-
-        <NavigationBar/>
+        { admin ? null : <NavigationBar/> }
 
         <Context.Provider value={data}>
 
@@ -46,16 +68,19 @@ function App() {
           <Route path='/view/:id' element={<ViewDetails/>}/>
           <Route path='/mycart' element={<MyCart/>}/>    
           <Route path='/login' element={<LogIn/>}/>
-          <Route path='signup' element={<SignUp/>}/>
-           
+          <Route path='/signup' element={<SignUp/>}/>
+          <Route path='/adminpage' element={<AdminPage/>}/>
+          <Route element={<AdminPage/>}>
+            <Route path='/adminpage/users' element={<Users/>}/>
+            <Route path='/adminpage/adminproducts' element={<AdminProducts/>}/>
+          </Route>
+          
         </Routes>
 
         </Context.Provider>
 
-        <Footer/>
-
-      </BrowserRouter>
-         
+        { admin ? null : <Footer/> }
+        
     </div>
   );
 }

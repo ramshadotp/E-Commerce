@@ -18,7 +18,9 @@ const Footer = () => {
           <a href='#'>About Us</a>
 
         </div>
+        
       </div>
+
     </footer>
   ); 
 }

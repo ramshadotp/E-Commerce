@@ -28,7 +28,9 @@ const Women = () => {
                 <Card.Title>{item.brand}</Card.Title>
                 <Card.Text>{item.type}</Card.Text>
                 <h6>Price: ₹ {item.price}</h6>
+
                 <Button onClick={()=>use(`/view/${item.id}`)} variant='outline-primary'>View Product</Button>
+                
               </Card.Body>
             </Card>
           ))}

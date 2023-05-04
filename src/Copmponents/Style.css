@@ -32,12 +32,12 @@
     background-color: black;
     color: white;
     border: none;
-    transition: background-color 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .wn-btn:hover{
     background-color: black;
     color: white;
     border: none;
-    transition: background-color 0.3s ease-in-out;
-} 
+    transition: transform 0.3s ease-in-out;
+}

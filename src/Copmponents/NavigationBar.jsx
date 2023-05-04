@@ -10,7 +10,7 @@ function NavigationBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-      <img src='https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/site-logo.svg'/>
+        <img src='https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/site-logo.svg'/>
         <Navbar.Brand></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -20,11 +20,11 @@ function NavigationBar() {
           style={{ maxHeight: '100px' }}
           navbarScroll>
           
-          <Nav.Link as={Link} to="/men">MEN</Nav.Link>
-          <Nav.Link as={Link} to="/women">WOMEN</Nav.Link>
-          <Nav.Link as={Link} to="/kids">KIDS</Nav.Link>
-          <Nav.Link as={Link} to="/sports">SPORTS</Nav.Link>          
-          <Nav.Link as={Link} to="/collections">COLLECTIONS</Nav.Link>
+          <Nav.Link as={Link} to='/men'>MEN</Nav.Link>
+          <Nav.Link as={Link} to='/women'>WOMEN</Nav.Link>
+          <Nav.Link as={Link} to='/kids'>KIDS</Nav.Link>
+          <Nav.Link as={Link} to='/sports'>SPORTS</Nav.Link>          
+          <Nav.Link as={Link} to='/collections'>COLLECTIONS</Nav.Link>
         </Nav>
          
         <Form className="d-flex">
@@ -38,10 +38,10 @@ function NavigationBar() {
         </Form>
 
         <Nav>
-          <Nav.Link as={Link} to="/"><BsFillHouseDoorFill/></Nav.Link>
-          <Nav.Link as={Link} to="/mycart"><BsFillCartPlusFill/></Nav.Link>
-          <Nav.Link as={Link} to="/login"><BsFillPersonLinesFill/></Nav.Link>
-        </Nav>
+          <Nav.Link as={Link} to='/'><BsFillHouseDoorFill/></Nav.Link>
+          <Nav.Link as={Link} to='/mycart'><BsFillCartPlusFill/></Nav.Link>
+          <Nav.Link as={Link} to='/login'><BsFillPersonLinesFill/></Nav.Link>
+        </Nav> 
         
         </Navbar.Collapse>
       </Container>

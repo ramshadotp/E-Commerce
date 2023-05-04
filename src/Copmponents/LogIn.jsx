@@ -9,7 +9,10 @@ function LogIn() {
     return(
         
         <div>
+
           <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsPersonFill/> LOG IN</h1>
+
+          <div className='log-main'>
         
           <div className="log-div"><br/>
       
@@ -23,11 +26,11 @@ function LogIn() {
 
             <Button variant='outline-primary'>Log In</Button><br/><br/>
 
-            <p>Do have an account ?</p>
-
-            <Link to='/signup'>Register here</Link>
-        
+            <p>Do have an account ? <Link to='/signup'>Register here</Link></p>
           </div>
+          
+          </div>
+          
         </div>
     );
 }

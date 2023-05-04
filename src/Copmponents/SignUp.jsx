@@ -1,44 +1,66 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import React, { useContext, useRef, useState } from 'react'
+import { Button } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
+import { Context } from './Context';
+import Form from 'react-bootstrap/Form';
 import { BsPersonFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
 
 
 function SignUp() {
 
-    return(
+  const add = useContext(Context)
+  const {signup, setSignup} = add
+  const inputRef = useRef()
 
-        <div>
+  const handleSubmit = () => {
 
-          <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsPersonFill/> SIGN UP</h1>
-         
-          <div className="sign-div"><br/>
-            <h2 className="reg">Register</h2><br/>
+    const username = inputRef.current.user.value;
+    const email = inputRef.current.email.value;
+    const password = inputRef.current.password.value;
+    const pwd = inputRef.current.confirmpwd;
+    setSignup([...signup,{username,email,password,pwd}])
+    console.log(signup);
+  }
 
-            <label className="full-name">Full Name</label>&nbsp;&nbsp;
-            <input type="text" placeholder="Full Name" className="full-name1"/><br/><br/>
+  return (
 
-            <label className="user">UserName</label>&nbsp;&nbsp;
-            <input type="text" placeholder="UserName" className="user1"/><br/><br/>
+    <div>
 
-            <label className="email">E-mail</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" placeholder="E-mail" className="email1"/><br/><br/>
+    <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsPersonFill/> SIGN UP</h1><br/>
 
-            <label className="pwd">Password</label>&nbsp;&nbsp;&nbsp;
-            <input type="text" placeholder="Password" className="pwd1"/><br/><br/>
+    <div  className="S-maindiv">
+    
+    <Form ref={inputRef} onSubmit={(e)=>{e.preventDefault()}}>
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Label>User Name</Form.Label>
+      <Form.Control name='user' placeholder="Enter username" />
+      <Form.Text className="text-muted">
+      </Form.Text>
+    </Form.Group>
 
-            <label className="conf-pwd">Confirm<br/>Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" placeholder="Confirm Password" className="conf-pwd1"/><br/><br/>
-
-            <Button variant='outline-primary'>Sign Up</Button><br/><br/>
-
-            <p>If you have a Already an account</p>
-
-            <Link to='/login'>Login</Link>
-          </div>
-
-
-        </div>
-    );
+    <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Label>Email</Form.Label>
+      <Form.Control name='email'  placeholder="Password" />
+    </Form.Group>
+    <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Label>Password</Form.Label>
+      <Form.Control name='password'  placeholder="Password" />
+    </Form.Group>
+    <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Label>Confirm Password</Form.Label>
+      <Form.Control name='confirmpwd' placeholder="Password" />
+    </Form.Group>
+    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      <Form.Check type="checkbox" label="Check me out" />
+    </Form.Group>
+    <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button><br/><br/>
+    <label> Have already an account.</label><Link to='/login'> Login</Link>
+  </Form>
+   
+    </div>
+   </div> 
+   
+  )
 }
+
 export default SignUp;

@@ -8,25 +8,22 @@ import { Context } from './Context';
 const ViewDetails = () => {
 
   const add = useContext(Context);
-  const {state,setState} = add;
+  const {state, setState} = add;
   const {id} = useParams();
   const data = ProductsData.filter((items)=>items.id===parseInt(id)); 
 
 
-  
   const MyCart = () => {
 
     const[newData] = data;
-    const duplicate = state.filter((item)=>item.id===parseInt(id))
+    const duplicate = state.filter((item)=>item.id===parseInt(id));
     if(duplicate.length>0){
       return alert ("Product already exists");
     }else{
       setState (prevState => [...prevState, newData]);
       alert("Product added to Cart");
       console.log(state);
-
     }
-   
   }
 
   return (
@@ -48,14 +45,9 @@ const ViewDetails = () => {
               <Card.Title>{item.brand}</Card.Title>
               <Card.Text>{item.type}</Card.Text> 
               <h6>Price: ₹ {item.price}</h6>
-              <div>
-                <p>Qty:
-                  <Button className='m-1' variant='outline-primary'>-</Button>
-                  {item.qty}
-                  <Button className='m-1' variant='outline-primary'>+</Button>
-                </p>
-              </div>
+          
               <Button onClick={MyCart} variant='outline-primary'>Add to Cart</Button>
+              
             </Card.Body>
           </Card>
         ))}
