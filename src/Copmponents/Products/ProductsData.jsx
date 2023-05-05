@@ -46,7 +46,7 @@ export const ProductsData = [
 
     {
         id: 6,
-        model: "Nike",
+        brand: "Nike",
         type: "Men's Shoes",
         price: 10295,
         image: "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/1ec5a275-a564-4dc6-b8a4-3909bcbe32ea/dunk-hi-retro-shoes-WVg5bq.png",

@@ -4,10 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { BsFillCartPlusFill, BsFillHouseDoorFill, BsFillPersonLinesFill } from "react-icons/bs";
+import { BsHouseDoorFill, BsCartPlusFill, BsPersonLinesFill } from "react-icons/bs";
+
 
 function NavigationBar() {
+
   return (
+
     <Navbar bg="light" expand="lg">
       <Container fluid>
         <img src='https://websitedemos.net/recycled-shoe-store-04/wp-content/uploads/sites/983/2021/11/site-logo.svg'/>
@@ -25,6 +28,7 @@ function NavigationBar() {
           <Nav.Link as={Link} to='/kids'>KIDS</Nav.Link>
           <Nav.Link as={Link} to='/sports'>SPORTS</Nav.Link>          
           <Nav.Link as={Link} to='/collections'>COLLECTIONS</Nav.Link>
+          <Nav.Link as={Link} to='/adminbar'>ADMIN</Nav.Link>
         </Nav>
          
         <Form className="d-flex">
@@ -38,9 +42,9 @@ function NavigationBar() {
         </Form>
 
         <Nav>
-          <Nav.Link as={Link} to='/'><BsFillHouseDoorFill/></Nav.Link>
-          <Nav.Link as={Link} to='/mycart'><BsFillCartPlusFill/></Nav.Link>
-          <Nav.Link as={Link} to='/login'><BsFillPersonLinesFill/></Nav.Link>
+          <Nav.Link as={Link} to='/'><BsHouseDoorFill/></Nav.Link>
+          <Nav.Link as={Link} to='/mycart'><BsCartPlusFill/></Nav.Link>
+          <Nav.Link as={Link} to='/login'><BsPersonLinesFill/></Nav.Link>
         </Nav> 
         
         </Navbar.Collapse>

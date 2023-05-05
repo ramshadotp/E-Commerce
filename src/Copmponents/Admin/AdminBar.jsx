@@ -3,11 +3,20 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { BsFillHouseDoorFill, BsFillPersonLinesFill, BsPersonCircle } from "react-icons/bs";
-import { Link, Outlet } from 'react-router-dom';
+import { BsFillHouseDoorFill, BsPersonCircle } from "react-icons/bs";
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 
-function AdminPage() {
+function AdminBar () {
+
+  const Navigate = useNavigate();
+
+  const HandleSubmit = () => {
+
+    Navigate('/adminbar/adminusers');
+
+  }
+
 
   return (
     <div>
@@ -16,13 +25,15 @@ function AdminPage() {
         <Navbar.Brand>Admin</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
+
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link as={Link} to='/adminpage/users'>Users</Nav.Link>
-            <Nav.Link as={Link} to='/adminpage/adminproducts'>Products</Nav.Link>
+            <Nav.Link onClick={HandleSubmit} >Users</Nav.Link>
+            <Nav.Link as={Link} to='/adminbar/admincollections'>Collections</Nav.Link>
+            <Nav.Link as={Link} to='/adminbar/adminaddproducts'>Add Products</Nav.Link>
             <Nav.Link>Revenue</Nav.Link>
           </Nav>
 
@@ -37,9 +48,8 @@ function AdminPage() {
           </Form>
           
           <Nav>
-            <Nav.Link><BsFillHouseDoorFill/></Nav.Link>
+            <Nav.Link as={Link} to='/'><BsFillHouseDoorFill/></Nav.Link>
             <Nav.Link><BsPersonCircle/></Nav.Link>
-            <Nav.Link><BsFillPersonLinesFill/></Nav.Link>
           </Nav>
 
         </Navbar.Collapse>
@@ -50,4 +60,4 @@ function AdminPage() {
   );
 }
 
-export default AdminPage;
+export default AdminBar;

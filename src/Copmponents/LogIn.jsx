@@ -1,39 +1,71 @@
-import React from 'react';
+import React, { useContext, useRef } from 'react';
+import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { BsPersonFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Context } from './Context';
 
 
 function LogIn() {
 
-    return(
-        
-        <div>
 
-          <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsPersonFill/> LOG IN</h1>
+  const InputRef = useRef(null);
 
-          <div className='log-main'>
-        
-          <div className="log-div"><br/>
-      
-            <h2 className="log">Login</h2><br/>
+  const Navigate = useNavigate();
 
-            <label className="user">UserName</label>&nbsp;
-            <input type="text" placeholder="UserName" className="user1"/><br/><br/>
+  const add = useContext(Context)
+  const {signup} = add
+  console.log(signup);
 
-            <label className="pwd">Password</label>&nbsp;&nbsp;&nbsp;
-            <input type="text" placeholder="Password" className="pwd1"/><br/><br/>
 
-            <Button variant='outline-primary'>Log In</Button><br/><br/>
+  const HandleSubmit = () => {
 
-            <p>Do have an account ? <Link to='/signup'>Register here</Link></p>
-          </div>
+    const user = InputRef.current.user.value;
+    const pwd = InputRef.current.password.value;
+    const details = signup.filter((item)=>item.username===user&&item.password===pwd)
+    if(details.length>0){
+      Navigate('/');
+      alert('Login Successfully');
+    }else{
+      alert('wrong username & password');
+    }
+
+  }
+
+
+  return(
+
+    <div>
+
+      <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsPersonFill/> LOG IN</h1><br/>
+      <h2>Log In</h2><br/>
+
+      <div className='log-main'>
+
+        <Form ref={InputRef} onSubmit={(e)=>e.preventDefault()}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control name='user' placeholder="Email" />
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control name='password'  placeholder="Password"/>
+          </Form.Group>
+
+           <Button variant="outline-primary" type="submit" onClick={HandleSubmit}>Submit</Button><br/><br/>
+           <label>Do you have an account .</label><Link to='/signup'> Register here</Link>
+
+        </Form>
+
+      </div>
           
-          </div>
+    </div>
           
-        </div>
-    );
+   );
 }
+
 export default LogIn;
 
 

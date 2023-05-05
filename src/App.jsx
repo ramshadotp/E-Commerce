@@ -12,12 +12,17 @@ import MyCart from './Copmponents/MyCart';
 import LogIn from './Copmponents/LogIn';
 import SignUp from './Copmponents/SignUp';
 import Footer from './Copmponents/Footer';
-import AdminPage from './Copmponents/Admin/AdminPage';
+import AdminBar from './Copmponents/Admin/AdminBar';
 import { Context } from './Copmponents/Context';
 import { useEffect, useState } from 'react';
 import './App.css';
-import Users from './Copmponents/Admin/Users';
-import AdminProducts from './Copmponents/Admin/AdminProducts';
+import AdminUsers from './Copmponents/Admin/AdminUsers';
+import AdminCollections from './Copmponents/Admin/AdminCollections';
+import { ProductsData } from './Copmponents/Products/ProductsData';
+import AdminAddProducts from './Copmponents/Admin/AdminAddProducts';
+import AdminEdit from './Copmponents/Admin/AdminEdit';
+
+
 
 
 function App() {
@@ -28,7 +33,7 @@ function App() {
 
   useEffect(()=>{
 
-    if(location.pathname.includes("adminpage")){
+    if(location.pathname.includes("adminbar")){
       setAdmin(true)
     }else{
       setAdmin(false)
@@ -38,12 +43,23 @@ function App() {
 
 
   const [state, setState] = useState([]);
-  const [signup, setSignup] = useState([]);
 
+  const [products, setProducts] = useState(ProductsData);
+
+  const [edit, setEdit] = useState([])
+
+  const [signup, setSignup] = useState([])
 
   const data = {
     state,
     setState,
+    
+    products,
+    setProducts,
+
+    edit,
+    setEdit,
+
     signup,
     setSignup
   }
@@ -69,10 +85,12 @@ function App() {
           <Route path='/mycart' element={<MyCart/>}/>    
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/signup' element={<SignUp/>}/>
-          <Route path='/adminpage' element={<AdminPage/>}/>
-          <Route element={<AdminPage/>}>
-            <Route path='/adminpage/users' element={<Users/>}/>
-            <Route path='/adminpage/adminproducts' element={<AdminProducts/>}/>
+          <Route path='/adminbar' element={<AdminBar/>}/>
+          <Route element={<AdminBar/>}>
+            <Route path='/adminbar/adminusers' element={<AdminUsers/>}/>
+            <Route path='/adminbar/admincollections' element={<AdminCollections/>}/>
+            <Route path='/adminbar/adminaddproducts' element={<AdminAddProducts/>}/>
+            <Route path='/adminbar/adminedit' element={<AdminEdit/>}/>
           </Route>
           
         </Routes>

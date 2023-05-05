@@ -5,8 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Collections = () => {
 
-  const [items, setItems] = useState(ProductsData);
-  const use = useNavigate();
+  const Navigate = useNavigate();
 
   return (
 
@@ -17,7 +16,7 @@ const Collections = () => {
       <div className='d-flex-column container'>
         <div className='row gap-5'>
 
-          {items.map((item)=> (
+          {ProductsData.map((item)=> (
 
             <Card
               className="shadow-lg p-3 mb-5 bg-body-tertiary rounded" 
@@ -29,7 +28,7 @@ const Collections = () => {
                 <Card.Text>{item.type}</Card.Text> 
                 <h6>Price: ₹ {item.price}</h6>
                 
-                <Button onClick={()=>use(`/view/${item.id}`)} variant='outline-primary'>View Product</Button>
+                <Button onClick={()=>Navigate(`/view/${item.id}`)} variant='outline-primary'>View Product</Button>
                 
               </Card.Body>
             </Card>

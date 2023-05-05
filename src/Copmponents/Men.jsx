@@ -3,10 +3,11 @@ import { ProductsData } from './Products/ProductsData';
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
+
 const Men = () => {
   
   const data = ProductsData.filter((item)=>item.type==="Men's Shoes");
-  const use = useNavigate();
+  const Navigate = useNavigate();
   
   return (
 
@@ -29,7 +30,7 @@ const Men = () => {
                 <Card.Text>{item.type}</Card.Text>
                 <h6>Price: ₹ {item.price}</h6>
 
-                <Button onClick={()=>use(`/view/${item.id}`)} variant='outline-primary'>View Product</Button>
+                <Button onClick={()=>Navigate(`/view/${item.id}`)} variant='outline-primary'>View Product</Button>
                 
               </Card.Body>
             </Card>

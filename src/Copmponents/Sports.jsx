@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Sports = () => {
   
   const data = ProductsData.filter((item)=>item.type==="Sports Shoes");
-  const use = useNavigate();
+  const Navigate = useNavigate();
   
   return (
 
@@ -28,7 +28,7 @@ const Sports = () => {
                 <Card.Title>{item.brand}</Card.Title>
                 <Card.Text>{item.type}</Card.Text>
                 <h6>Price: ₹ {item.price}</h6>
-                <Button onClick={()=>use(`/view/${item.id}`)} variant='outline-primary'>View Product</Button>
+                <Button onClick={()=>Navigate(`/view/${item.id}`)} variant='outline-primary'>View Product</Button>
               </Card.Body>
             </Card>
           ))}
