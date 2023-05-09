@@ -52,7 +52,7 @@ function LogIn() {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control name='password'  placeholder="Password"/>
-          </Form.Group>
+          </Form.Group><br/>
 
            <Button variant="outline-primary" type="submit" onClick={HandleSubmit}>Submit</Button><br/><br/>
            <label>Do you have an account .</label><Link to='/signup'> Register here</Link>

@@ -13,7 +13,8 @@ const AdminEdit = () => {
     const add = useContext(Context)
     const { edit, products, setProducts } = add
 
-    const InputRef = useRef(null)
+    const InputRef = useRef(null) 
+    
 
     const New = () => {
         

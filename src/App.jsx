@@ -42,20 +42,21 @@ function App() {
 
 
 
-  const [state, setState] = useState([]);
 
   const [products, setProducts] = useState(ProductsData);
+
+  const [state, setState] = useState([]);
 
   const [edit, setEdit] = useState([])
 
   const [signup, setSignup] = useState([])
 
   const data = {
-    state,
-    setState,
-    
     products,
     setProducts,
+
+    state,
+    setState,
 
     edit,
     setEdit,
@@ -86,6 +87,7 @@ function App() {
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/adminbar' element={<AdminBar/>}/>
+          
           <Route element={<AdminBar/>}>
             <Route path='/adminbar/adminusers' element={<AdminUsers/>}/>
             <Route path='/adminbar/admincollections' element={<AdminCollections/>}/>

@@ -40,7 +40,6 @@ const AdminAddProducts = () => {
         
         <div style={{width:'100%'}}>
     
-        <br /><br /> 
           <Form ref={inputRef} onSubmit={(e)=>e.preventDefault}>   
             <InputGroup size="lg" >
               <InputGroup.Text id="inputGroup-sizing-lg">Id</InputGroup.Text>

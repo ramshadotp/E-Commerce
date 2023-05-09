@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import { ProductsData } from './ProductsData';
+import React, { useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { Context } from '../Context';
+
 
 const Collections = () => {
 
   const Navigate = useNavigate();
 
+  const {products} = useContext(Context);
+
+  
   return (
 
     <div>
@@ -16,7 +20,7 @@ const Collections = () => {
       <div className='d-flex-column container'>
         <div className='row gap-5'>
 
-          {ProductsData.map((item)=> (
+          {products.map((item)=> (
 
             <Card
               className="shadow-lg p-3 mb-5 bg-body-tertiary rounded" 

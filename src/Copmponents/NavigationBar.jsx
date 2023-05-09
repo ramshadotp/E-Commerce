@@ -9,6 +9,12 @@ import { BsHouseDoorFill, BsCartPlusFill, BsPersonLinesFill } from "react-icons/
 
 function NavigationBar() {
 
+  const SearchHandle = () => {
+    const 
+  }
+
+
+
   return (
 
     <Navbar bg="light" expand="lg">
@@ -38,7 +44,7 @@ function NavigationBar() {
             className="me-2"
             aria-label="Search"
           />
-          <Button variant='outline-secondary'>Search</Button>
+          <Button ref={InputRef} onClick={SearchHandle} variant='outline-secondary'>Search</Button>
         </Form>
 
         <Nav>
