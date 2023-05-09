@@ -3,16 +3,34 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsHouseDoorFill, BsCartPlusFill, BsPersonLinesFill } from "react-icons/bs";
+import { useContext, useRef } from 'react';
+import { Context } from './Context';
 
 
 function NavigationBar() {
 
-  // const SearchHandle = () => {
-  //   const ProductNames = products.map((item)=> item.id===parseInt(id));
-  // }
+  const InputRef = useRef(null);
+  const Navigate = useNavigate();
+  const ProductName = useContext(Context);
+  const { products } = ProductName;
 
+
+     const SearchHandle = () => {
+     
+     const SearchName = InputRef.current.searchname.value;
+     const  productd = products.map((item)=>item.men)
+     
+     if(productd.includes(SearchName)){
+      const match = products.find((item)=>item.men === SearchName)
+      Navigate(`/${match.men}`);
+     }else{
+      alert('Brand ')
+     }
+
+    }
+  
 
 
   return (
@@ -37,14 +55,15 @@ function NavigationBar() {
           <Nav.Link as={Link} to='/adminbar'>ADMIN</Nav.Link>
         </Nav>
          
-        <Form className="d-flex">
+        <Form  ref={InputRef} className="d-flex">
           <Form.Control
             type="search"
             placeholder="Search"
             className="me-2"
             aria-label="Search"
+            name='searchname'
           />
-          <Button  variant='outline-secondary'>Search</Button>
+          <Button onClick={SearchHandle} variant='outline-secondary'>Search</Button>
         </Form>
 
         <Nav>

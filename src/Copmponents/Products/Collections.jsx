@@ -8,9 +8,8 @@ const Collections = () => {
 
   const Navigate = useNavigate();
 
-  const {products} = useContext(Context);
+  const { products } = useContext(Context);
 
-  
   return (
 
     <div>

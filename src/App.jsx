@@ -70,9 +70,10 @@ function App() {
 
     <div>
 
-        { admin ? null : <NavigationBar/> }
+        
 
         <Context.Provider value={data}>
+        { admin ? null : <NavigationBar/> }
 
         <Routes>
 
@@ -87,7 +88,7 @@ function App() {
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/adminbar' element={<AdminBar/>}/>
-          
+
           <Route element={<AdminBar/>}>
             <Route path='/adminbar/adminusers' element={<AdminUsers/>}/>
             <Route path='/adminbar/admincollections' element={<AdminCollections/>}/>
@@ -96,10 +97,10 @@ function App() {
           </Route>
           
         </Routes>
-
+        { admin ? null : <Footer/> }
         </Context.Provider>
 
-        { admin ? null : <Footer/> }
+       
         
     </div>
   );

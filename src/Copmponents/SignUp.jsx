@@ -13,7 +13,7 @@ function SignUp() {
   const add = useContext(Context)
   const {signup, setSignup} = add
   const inputRef = useRef()
-
+  
   const HandleSubmit = () => {
 
     const username = inputRef.current.user.value;
@@ -39,7 +39,7 @@ function SignUp() {
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>User Name</Form.Label>
-            <Form.Control name='user' placeholder="Enter Username" />
+            <Form.Control name='user' placeholder="Username" />
            <Form.Text className="text-muted"></Form.Text> 
          </Form.Group>
 
@@ -50,12 +50,12 @@ function SignUp() {
 
     <Form.Group className="mb-3" controlId="formBasicPassword">
       <Form.Label>Password</Form.Label>
-      <Form.Control name='password'  placeholder="Password" />
+      <Form.Control name='password' type='password' placeholder="Password" />
     </Form.Group>
     
     <Form.Group className="mb-3" controlId="formBasicPassword">
       <Form.Label>Confirm Password</Form.Label>
-      <Form.Control name='confirmpwd' placeholder="Confirm Password" />
+      <Form.Control name='confirmpwd' type='password' placeholder="Confirm Password" />
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicCheckbox">

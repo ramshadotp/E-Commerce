@@ -98,7 +98,7 @@ const AdminEdit = () => {
         />
       </InputGroup>
       <br /><br />
-      <Button variant='outline-primary' type='submit' onClick={NewUpdated}>Save</Button>{' '}
+      <Button variant='outline-primary' type='submit' onClick={NewUpdate}>Save</Button>{' '}
       </Form>
 
 
