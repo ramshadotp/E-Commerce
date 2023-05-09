@@ -40,7 +40,7 @@ function LogIn() {
       <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsPersonFill/> LOG IN</h1><br/>
       <h2>Log In</h2><br/>
 
-      <div className='log-main'>
+      <div className='d-flex-column container'>
 
         <Form ref={InputRef} onSubmit={(e)=>e.preventDefault()}>
           <Form.Group className="mb-3" controlId="formBasicEmail">

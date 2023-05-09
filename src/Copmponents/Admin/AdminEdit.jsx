@@ -14,9 +14,9 @@ const AdminEdit = () => {
     const { edit, products, setProducts } = add
 
     const InputRef = useRef(null) 
-    
 
-    const New = () => {
+
+    const NewUpdate = () => {
         
         const id = InputRef.current.Id.value
         const brand = InputRef.current.Brand.value
@@ -98,7 +98,7 @@ const AdminEdit = () => {
         />
       </InputGroup>
       <br /><br />
-      <Button variant='outline-primary' type='submit' onClick={New}>Save</Button>{' '}
+      <Button variant='outline-primary' type='submit' onClick={NewUpdated}>Save</Button>{' '}
       </Form>
 
 

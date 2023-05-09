@@ -9,9 +9,9 @@ import { BsHouseDoorFill, BsCartPlusFill, BsPersonLinesFill } from "react-icons/
 
 function NavigationBar() {
 
-  const SearchHandle = () => {
-    const 
-  }
+  // const SearchHandle = () => {
+  //   const ProductNames = products.map((item)=> item.id===parseInt(id));
+  // }
 
 
 
@@ -44,7 +44,7 @@ function NavigationBar() {
             className="me-2"
             aria-label="Search"
           />
-          <Button ref={InputRef} onClick={SearchHandle} variant='outline-secondary'>Search</Button>
+          <Button  variant='outline-secondary'>Search</Button>
         </Form>
 
         <Nav>

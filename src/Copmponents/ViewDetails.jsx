@@ -13,7 +13,7 @@ const ViewDetails = () => {
   const data = ProductsData.filter((items)=>items.id===parseInt(id)); 
 
 
-  const MyCart = () => {
+  const MyCart = () => {        
 
     const[newData] = data;
     const duplicate = state.filter((item)=>item.id===parseInt(id));
