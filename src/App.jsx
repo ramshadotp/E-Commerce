@@ -51,7 +51,10 @@ function App() {
 
   const [signup, setSignup] = useState([])
 
+  const [auth,setAuth]=useState(false)
+
   const data = {
+    
     products,
     setProducts,
 
@@ -62,7 +65,10 @@ function App() {
     setEdit,
 
     signup,
-    setSignup
+    setSignup,
+
+    auth,
+    setAuth
   }
   
 
@@ -70,9 +76,9 @@ function App() {
 
     <div>
 
-        
 
         <Context.Provider value={data}>
+
         { admin ? null : <NavigationBar/> }
 
         <Routes>
@@ -97,10 +103,10 @@ function App() {
           </Route>
           
         </Routes>
-        { admin ? null : <Footer/> }
-        </Context.Provider>
 
-       
+        { admin ? null : <Footer/> }
+
+        </Context.Provider>
         
     </div>
   );

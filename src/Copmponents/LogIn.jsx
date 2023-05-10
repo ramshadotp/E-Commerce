@@ -14,7 +14,7 @@ function LogIn() {
   const Navigate = useNavigate();
 
   const add = useContext(Context)
-  const {signup} = add
+  const {signup,setAuth} = add
   console.log(signup);
 
 
@@ -23,6 +23,7 @@ function LogIn() {
     const user = InputRef.current.user.value;
     const pwd = InputRef.current.password.value;
     const details = signup.filter((item)=>item.username===user&&item.password===pwd)
+    setAuth(true)
     if(details.length>0){
       Navigate('/');
       alert('Login Successfully');

@@ -10,6 +10,7 @@ const Collections = () => {
 
   const { products } = useContext(Context);
 
+  
   return (
 
     <div>

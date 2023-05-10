@@ -8,15 +8,18 @@ import { Context } from './Context';
 const ViewDetails = () => {
 
   const add = useContext(Context);
-  const {state, setState} = add;
+  const {state, setState, auth} = add;
   const {id} = useParams();
   const data = ProductsData.filter((items)=>items.id===parseInt(id)); 
 
 
-  const MyCart = () => {        
+  const MyCart = () => {  
+
+    if(auth)  { 
 
     const[newData] = data;
     const duplicate = state.filter((item)=>item.id===parseInt(id));
+
     if(duplicate.length>0){
       return alert ("Product already exists");
     }else{
@@ -24,8 +27,13 @@ const ViewDetails = () => {
       alert("Product added to Cart");
       console.log(state);
     }
-  }
 
+    }else{
+      alert('Please Login')
+    }
+
+  }
+  
   return (
 
     <div>
