@@ -10,9 +10,9 @@ function SignUp() {
 
   const Navigate = useNavigate();
 
-  const add = useContext(Context)
-  const {signup, setSignup} = add
-  const inputRef = useRef()
+  const add = useContext(Context);
+  const {signup, setSignup} = add;
+  const inputRef = useRef();
   
   const HandleSubmit = () => {
 
@@ -30,7 +30,7 @@ function SignUp() {
 
     <div>
 
-      <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsPersonFill/> SIGN UP</h1><br/>
+      <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsPersonFill/>SIGN UP</h1><br/>
       <h2>Register</h2><br/>
 
       <div  className="sign-main">

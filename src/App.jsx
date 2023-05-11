@@ -45,21 +45,23 @@ function App() {
 
   const [products, setProducts] = useState(ProductsData);
 
-  const [state, setState] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const [edit, setEdit] = useState([])
 
   const [signup, setSignup] = useState([])
 
-  const [auth,setAuth]=useState(false)
+  const [auth,setAuth] = useState(false)
+
+  const [search, setSearch] = useState()
 
   const data = {
     
     products,
     setProducts,
 
-    state,
-    setState,
+    cart,
+    setCart,
 
     edit,
     setEdit,
@@ -68,14 +70,16 @@ function App() {
     setSignup,
 
     auth,
-    setAuth
+    setAuth,
+
+    search,
+    setSearch
   }
   
 
   return (
 
     <div>
-
 
         <Context.Provider value={data}>
 

@@ -5,32 +5,32 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsHouseDoorFill, BsCartPlusFill, BsPersonLinesFill } from "react-icons/bs";
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import { Context } from './Context';
 
 
 function NavigationBar() {
 
-  const InputRef = useRef(null);
   const Navigate = useNavigate();
-  const ProductName = useContext(Context);
-  const { products } = ProductName;
+  const {auth} = useContext(Context);
 
 
-     const SearchHandle = () => {
-     
-     const SearchName = InputRef.current.searchname.value;
-     const  productd = products.map((item)=>item.men)
-     
-     if(productd.includes(SearchName)){
-      const match = products.find((item)=>item.men === SearchName)
-      Navigate(`/${match.men}`);
-     }else{
-      alert('Brand ')
-     }
+  const MyCart = () => {
 
+    if(auth) {
+      Navigate('/mycart')
+
+    }else{
+     alert('Please Login');
+     Navigate('/login') 
     }
-  
+
+  }
+
+  const SearchHandle = (e) => {
+    
+    console.log(e.target.value);
+  }
 
 
   return (
@@ -55,20 +55,20 @@ function NavigationBar() {
           <Nav.Link as={Link} to='/adminbar'>ADMIN</Nav.Link>
         </Nav>
          
-        <Form  ref={InputRef} className="d-flex">
+        <Form className="d-flex">
           <Form.Control
+            onChange={SearchHandle}
             type="search"
             placeholder="Search"
             className="me-2"
             aria-label="Search"
             name='searchname'
           />
-          <Button onClick={SearchHandle} variant='outline-secondary'>Search</Button>
         </Form>
 
         <Nav>
           <Nav.Link as={Link} to='/'><BsHouseDoorFill/></Nav.Link>
-          <Nav.Link as={Link} to='/mycart'><BsCartPlusFill/></Nav.Link>
+          <Nav.Link onClick={MyCart}><BsCartPlusFill/></Nav.Link>
           <Nav.Link as={Link} to='/login'><BsPersonLinesFill/></Nav.Link>
         </Nav> 
         

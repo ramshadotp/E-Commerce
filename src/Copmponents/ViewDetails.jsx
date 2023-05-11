@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ProductsData } from './Products/ProductsData';
 import { Card, Button } from 'react-bootstrap';
 import { Context } from './Context';
@@ -7,29 +7,31 @@ import { Context } from './Context';
 
 const ViewDetails = () => {
 
+  const Navigate = useNavigate();
+
   const add = useContext(Context);
-  const {state, setState, auth} = add;
+  const {cart, setCart, auth} = add;
   const {id} = useParams();
-  const data = ProductsData.filter((items)=>items.id===parseInt(id)); 
+  const data = ProductsData.filter((item)=>item.id==id); 
 
 
-  const MyCart = () => {  
+  const myCart = () => {
 
-    if(auth)  { 
+    if(auth) {
 
     const[newData] = data;
-    const duplicate = state.filter((item)=>item.id===parseInt(id));
+    const duplicate = cart.filter((item)=>item.id==id);
 
     if(duplicate.length>0){
       return alert ("Product already exists");
     }else{
-      setState (prevState => [...prevState, newData]);
+      setCart (prevState => [...prevState, newData]);
       alert("Product added to Cart");
-      console.log(state);
     }
 
     }else{
-      alert('Please Login')
+      alert('Please Login');
+      Navigate('/login');
     }
 
   }
@@ -54,7 +56,7 @@ const ViewDetails = () => {
               <Card.Text>{item.type}</Card.Text> 
               <h6>Price: ₹ {item.price}</h6>
           
-              <Button onClick={MyCart} variant='outline-primary'>Add to Cart</Button>
+              <Button onClick={myCart} variant='outline-primary'>Add to Cart</Button>
               
             </Card.Body>
           </Card>

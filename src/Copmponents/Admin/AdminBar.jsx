@@ -49,7 +49,7 @@ function AdminBar () {
           
           <Nav>
             <Nav.Link as={Link} to='/'><BsFillHouseDoorFill/></Nav.Link>
-            <Nav.Link><BsPersonCircle/></Nav.Link>
+            <Nav.Link as={Link} to='/login'><BsPersonCircle/></Nav.Link>
           </Nav>
 
         </Navbar.Collapse>

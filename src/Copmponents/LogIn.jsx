@@ -14,7 +14,7 @@ function LogIn() {
   const Navigate = useNavigate();
 
   const add = useContext(Context)
-  const {signup,setAuth} = add
+  const {signup, setAuth} = add
   console.log(signup);
 
 
@@ -24,9 +24,11 @@ function LogIn() {
     const pwd = InputRef.current.password.value;
     const details = signup.filter((item)=>item.username===user&&item.password===pwd)
     setAuth(true)
+
     if(details.length>0){
-      Navigate('/');
       alert('Login Successfully');
+      Navigate('/');
+      
     }else{
       alert('wrong username & password');
     }
@@ -53,7 +55,7 @@ function LogIn() {
             <Form.Control name='password' type='password' placeholder="Password"/>
           </Form.Group><br/>
 
-           <Button variant="outline-primary" type="submit" onClick={HandleSubmit}>Submit</Button><br/><br/>
+           <Button variant="outline-primary" type="submit" onClick={HandleSubmit}>Log In</Button><br/><br/>
            <label>Do you have an account .</label><Link to='/signup'> Register here</Link>
 
         </Form>

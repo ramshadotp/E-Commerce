@@ -106,6 +106,4 @@ export const ProductsData = [
         image: "addidas",
         qty: 1,
     },
-
-    
 ]

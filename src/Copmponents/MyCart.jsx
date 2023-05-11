@@ -6,25 +6,30 @@ import { BsCart4 } from 'react-icons/bs';
 
 const MyCart = () => {
 
-    const add = useContext(Context);
-    const {state, setState} = add;
-    console.log(state);
+  const add = useContext(Context);
+  const {cart, setCart} = add;
+  console.log(cart);
 
-    const Remove = (e) => {
+
+  const Remove = (e) => {
+
     const Removeid = parseInt(e.target.id);
-    const Balancedata = state.filter((item)=>item.id!==Removeid);
-    setState(Balancedata);
-    }
+    const Balancedata = cart.filter((item)=>item.id!==Removeid);
+    setCart(Balancedata);
+  }
 
-    
+      
   return (
+
     <div>
       <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsCart4/> MY CART</h1><br/>
       <h2>My Cart</h2><br/>
 
       <div className='d-flex-column container'>
 
-        {state.map((item)=>(
+        {cart.length==0? <div className='empty_img'><img src="https://cdn.dribbble.com/users/5107895/screenshots/14532312/media/a7e6c2e9333d0989e3a54c95dd8321d7.gif" alt="" /><h2 style={{textAlign:'center'}}>Cart is empty</h2></div>:<div  className='items'>
+
+        {cart.map((item)=>(
 
           <Card
             className="shadow p-3 mb-5 bg-body-tertiary rounded" 
@@ -50,6 +55,8 @@ const MyCart = () => {
             </Card.Body>
           </Card>
         ))}
+        </div>
+        }
       </div>
     </div>
   );

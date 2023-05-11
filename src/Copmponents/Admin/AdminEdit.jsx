@@ -11,7 +11,7 @@ const AdminEdit = () => {
     const Navigate = useNavigate();
   
     const add = useContext(Context)
-    const { edit, products, setProducts } = add
+    const { products, setProducts, edit } = add
 
     const InputRef = useRef(null) 
 
