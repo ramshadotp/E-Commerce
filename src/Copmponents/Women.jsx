@@ -3,9 +3,11 @@ import { ProductsData } from './Products/ProductsData';
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
+
 const Women = () => {
   
   const data = ProductsData.filter((item)=>item.type==="Women's Shoes");
+  
   const Navigate = useNavigate()
   
   return (

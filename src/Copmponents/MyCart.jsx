@@ -6,16 +6,14 @@ import { BsCart4 } from 'react-icons/bs';
 
 const MyCart = () => {
 
-  const add = useContext(Context);
-  const {cart, setCart} = add;
-  console.log(cart);
+  const {cart, setCart} = useContext(Context);
 
 
-  const Remove = (e) => {
+  const remove = (e) => {
 
-    const Removeid = parseInt(e.target.id);
-    const Balancedata = cart.filter((item)=>item.id!==Removeid);
-    setCart(Balancedata);
+    const removeId = parseInt(e.target.id);
+    const balanceData = cart.filter((item)=>item.id!==removeId);
+    setCart(balanceData);
   }
 
       
@@ -50,7 +48,7 @@ const MyCart = () => {
 
               <Button variant='outline-primary'>Buy Product</Button>
 
-              <Button onClick={Remove} id={item.id} className='ms-3' variant='outline-danger'>Remove</Button>
+              <Button onClick={remove} id={item.id} className='ms-3' variant='outline-danger'>Remove</Button>
 
             </Card.Body>
           </Card>

@@ -11,9 +11,19 @@ function AdminBar () {
 
   const Navigate = useNavigate();
 
-  const HandleSubmit = () => {
+  const {setSearch} = useContext(Context);
+  
+
+  const handleSubmit = () => {
 
     Navigate('/adminbar/adminusers');
+
+  }
+
+  const searchHandle = (e) => {
+    
+    setSearch(e.target.value);
+    Navigate('/search');
 
   }
 
@@ -31,14 +41,15 @@ function AdminBar () {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link onClick={HandleSubmit} >Users</Nav.Link>
-            <Nav.Link as={Link} to='/adminbar/admincollections'>Collections</Nav.Link>
+            <Nav.Link onClick={handleSubmit} >Users</Nav.Link>
+            <Nav.Link as={Link} to='/adminbar/admincollection'>Collection</Nav.Link>
             <Nav.Link as={Link} to='/adminbar/adminaddproducts'>Add Products</Nav.Link>
             <Nav.Link>Revenue</Nav.Link>
           </Nav>
 
           <Form className="d-flex">
             <Form.Control
+              onChange={searchHandle}
               type="search"
               placeholder="Search"
               className="me-2"

@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './Copmponents/NavigationBar';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './Copmponents/Home';
-import Collections from './Copmponents/Products/Collections';
+import Collection from './Copmponents/Products/Collection';
 import Men from './Copmponents/Men';
 import Women from './Copmponents/Women';
 import Kids from './Copmponents/Kids';
@@ -17,10 +17,11 @@ import { Context } from './Copmponents/Context';
 import { useEffect, useState } from 'react';
 import './App.css';
 import AdminUsers from './Copmponents/Admin/AdminUsers';
-import AdminCollections from './Copmponents/Admin/AdminCollections';
+import AdminCollection from './Copmponents/Admin/AdminCollection';
 import { ProductsData } from './Copmponents/Products/ProductsData';
 import AdminAddProducts from './Copmponents/Admin/AdminAddProducts';
 import AdminEdit from './Copmponents/Admin/AdminEdit';
+import UserSearch from './Copmponents/UserSearch';
 
 
 
@@ -29,6 +30,7 @@ function App() {
 
 
   const location = useLocation();
+
   const [admin, setAdmin] = useState(false);
 
   useEffect(()=>{
@@ -39,7 +41,6 @@ function App() {
       setAdmin(false)
     }
   },[location])
-
 
 
 
@@ -88,20 +89,22 @@ function App() {
         <Routes>
 
           <Route path='/' element={<Home/>}/>
-          <Route path='/collections' element={<Collections/>}/>
+          <Route path='/collection' element={<Collection/>}/>
           <Route path='/men' element={<Men/>}/>
           <Route path='/women' element={<Women/>}/>
           <Route path='/kids' element={<Kids/>}/>
           <Route path='/sports' element={<Sports/>}/>
           <Route path='/view/:id' element={<ViewDetails/>}/>
-          <Route path='/mycart' element={<MyCart/>}/>    
+          <Route path='/mycart' element={<MyCart/>}/> 
+          <Route path='/search' element={<UserSearch/>}/> 
+
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/adminbar' element={<AdminBar/>}/>
 
           <Route element={<AdminBar/>}>
             <Route path='/adminbar/adminusers' element={<AdminUsers/>}/>
-            <Route path='/adminbar/admincollections' element={<AdminCollections/>}/>
+            <Route path='/adminbar/admincollection' element={<AdminCollection/>}/>
             <Route path='/adminbar/adminaddproducts' element={<AdminAddProducts/>}/>
             <Route path='/adminbar/adminedit' element={<AdminEdit/>}/>
           </Route>

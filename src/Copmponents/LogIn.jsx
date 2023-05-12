@@ -13,12 +13,10 @@ function LogIn() {
 
   const Navigate = useNavigate();
 
-  const add = useContext(Context)
-  const {signup, setAuth} = add
-  console.log(signup);
+  const {signup, setAuth} = useContext(Context);
 
 
-  const HandleSubmit = () => {
+  const handleSubmit = () => {
 
     const user = InputRef.current.user.value;
     const pwd = InputRef.current.password.value;
@@ -55,7 +53,7 @@ function LogIn() {
             <Form.Control name='password' type='password' placeholder="Password"/>
           </Form.Group><br/>
 
-           <Button variant="outline-primary" type="submit" onClick={HandleSubmit}>Log In</Button><br/><br/>
+           <Button variant="outline-primary" type="submit" onClick={handleSubmit}>Log In</Button><br/><br/>
            <label>Do you have an account .</label><Link to='/signup'> Register here</Link>
 
         </Form>

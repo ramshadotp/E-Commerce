@@ -10,35 +10,34 @@ const AdminAddProducts = () => {
 
   const Navigate = useNavigate();
 
-    const add = useContext(Context);
-    const { products, setProducts } = add
+  const { products, setProducts } = useContext(Context);
 
-    const inputRef = useRef(null);
+  const inputRef = useRef(null);
 
-    const AddItem = () => {
+
+  const addItem = () => {
         
-        const id = inputRef.current.Id.value
-        const brand = inputRef.current.Brand.value
-        const price = inputRef.current.Price.value
-        const qty = inputRef.current.Qty.value
-        const img = inputRef.current.Image.value
-        const type = inputRef.current.Type.value
-        setProducts([...products,{id,brand,price,qty,img,type}])
-        console.log(products);
+      const id = inputRef.current.Id.value;
+      const brand = inputRef.current.Brand;
+      const price = inputRef.current.Price.value;
+      const qty = inputRef.current.Qty.value;
+      const img = inputRef.current.Image.value;
+      const type = inputRef.current.Type.value;
+      setProducts([...products,{id,brand,price,qty,img,type}]);
 
-        Navigate('/adminbar/admincollections');
-    }
+      Navigate('/adminbar/admincollections');
+  }
 
 
-    return (
+  return (
 
-         <div>
+    <div>
 
-        <h1 style={{textAlign: 'center'}} className='bg-info text-white'>ADD PRODUCTS</h1><br/>
-        <h2>Products</h2><br/>
+      <h1 style={{textAlign: 'center'}} className='bg-info text-white'>ADD PRODUCTS</h1><br/>
+      <h2>Products</h2><br/>
         
         
-        <div style={{width:'100%'}}>
+      <div style={{width:'100%'}}>
     
           <Form ref={inputRef} onSubmit={(e)=>e.preventDefault}>   
             <InputGroup size="lg" >
@@ -99,7 +98,7 @@ const AdminAddProducts = () => {
         />
       </InputGroup>
       <br /><br />
-      <Button variant='outline-primary' type='submit' onClick={AddItem}>Save</Button>{' '}
+      <Button variant='outline-primary' type='submit' onClick={addItem}>Save</Button>{' '}
       </Form>
       
     </div>

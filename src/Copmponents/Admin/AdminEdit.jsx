@@ -10,24 +10,22 @@ const AdminEdit = () => {
 
     const Navigate = useNavigate();
   
-    const add = useContext(Context)
-    const { products, setProducts, edit } = add
+    const { products, setProducts, edit } = useContext(Context);
 
-    const InputRef = useRef(null) 
+    const inputRef = useRef(null);
 
 
-    const NewUpdate = () => {
+    const editUpdate = () => {
         
-        const id = InputRef.current.Id.value
-        const brand = InputRef.current.Brand.value
-        const price = InputRef.current.Price.value
-        const qty = InputRef.current.Qty.value
-        const img = InputRef.current.Image.value
-        const type = InputRef.current.Type.value
-        setProducts([...products,{id,brand,price,qty,img,type}])
-        console.log(products);
+        const id = inputRef.current.Id.value;
+        const brand = inputRef.current.Brand.value;
+        const price = inputRef.current.Price.value;
+        const qty = inputRef.current.Qty.value;
+        const img = inputRef.current.Image.value;
+        const type = inputRef.current.Type.value;
+        setProducts([...products,{id,brand,price,qty,img,type}]);
 
-        Navigate('/adminbar/admincollections');
+        Navigate('/adminbar/admincollection');
 
     }
 
@@ -37,9 +35,8 @@ const AdminEdit = () => {
          <div>
 
          {edit.map((item)=>(
-
           
-          <Form ref={InputRef} key={item.id}> 
+          <Form ref={inputRef} key={item.id}> 
             <InputGroup size="lg" >
               <InputGroup.Text id="inputGroup-sizing-lg">Id</InputGroup.Text>
                 <Form.Control
@@ -98,7 +95,7 @@ const AdminEdit = () => {
         />
       </InputGroup>
       <br /><br />
-      <Button variant='outline-primary' type='submit' onClick={NewUpdate}>Save</Button>{' '}
+      <Button variant='outline-primary' type='submit' onClick={editUpdate}>Save</Button>{' '}
       </Form>
 
 

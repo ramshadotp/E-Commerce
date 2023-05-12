@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Context } from '../Context';
 
 
-const Collections = () => {
+const Collection = () => {
 
   const Navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const Collections = () => {
   return (
 
     <div>
-      <h1 style={{textAlign: 'center'}} className='bg-info text-white'>COLLECTIONS</h1><br/>
+      <h1 style={{textAlign: 'center'}} className='bg-info text-white'>COLLECTION</h1><br/>
       <h2 className='d-flex container'>Our Best Seller</h2><br/>
     
       <div className='d-flex-column container'>
@@ -43,4 +43,4 @@ const Collections = () => {
   );
 }
 
-export default Collections;
+export default Collection;

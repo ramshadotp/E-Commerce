@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { Context } from '../Context'
 
+
 const AdminUsers = () => {
 
-  const add = useContext(Context)
-  const {signup} = add
-  console.log(signup);
+  const {signup} = useContext(Context);
+  
 
   return (
 

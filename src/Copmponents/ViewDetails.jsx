@@ -9,8 +9,7 @@ const ViewDetails = () => {
 
   const Navigate = useNavigate();
 
-  const add = useContext(Context);
-  const {cart, setCart, auth} = add;
+  const {cart, setCart, auth} = useContext(Context);
   const {id} = useParams();
   const data = ProductsData.filter((item)=>item.id==id); 
 

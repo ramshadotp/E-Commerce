@@ -6,29 +6,29 @@ import { useContext } from 'react';
 import { Context } from '../Context';
 
 
-const AdminCollections = () => {
+const AdminCollection = () => {
 
   const Navigate = useNavigate();
 
-  const add = useContext(Context)
-  const { products, setProducts, setEdit } = add
-  console.log(products);
+  const { products, setProducts, setEdit } = useContext(Context);
 
   
-  const DeleteProduct = (e) => {
-    const Deleteid = parseInt(e.target.id);
-    const Balancedata = products.filter((item)=>parseInt(item.id)!==Deleteid);
-    setProducts(Balancedata);
+  const deleteProduct = (e) => {
+
+    const deleteId = parseInt(e.target.id);
+    const balanceData = products.filter((item)=>parseInt(item.id)!==deleteId);
+    setProducts(balanceData);
   }
 
 
-  const EditProduct = (e) => {
-    const Removeid = parseInt(e.target.id)
-    const Updated = products.filter((item)=>parseInt(item.id)===Removeid);
-    setEdit(Updated);
+  const editProduct = (e) => {
 
-    const NewUpdated = products.filter((item)=>parseInt(item.id)!==Removeid);
-    setProducts(NewUpdated);
+    const removeId = parseInt(e.target.id)
+    const updated = products.filter((item)=>parseInt(item.id)===removeId);
+    setEdit(updated);
+
+    const newUpdated = products.filter((item)=>parseInt(item.id)!==removeId);
+    setProducts(newUpdated);
 
     Navigate('/adminbar/adminedit');
   }
@@ -37,7 +37,7 @@ const AdminCollections = () => {
   return (
 
     <div> 
-      <h1 style={{textAlign: 'center'}} className='bg-info text-white'>COLLECTIONS</h1><br/>
+      <h1 style={{textAlign: 'center'}} className='bg-info text-white'>COLLECTION</h1><br/>
       <h2>Products</h2><br/>
 
       <Table striped bordered hover variant="dark" style={{width:'100%'}}>
@@ -65,8 +65,8 @@ const AdminCollections = () => {
               <td><img src={item.image} style={{ width:'55px', height:'45px' }}/></td>
               <td>{item.price}</td>
               <td>{item.qty}</td>
-              <td><Button onClick={EditProduct} id={item.id} variant='outline-primary'>Edit</Button>{''}</td>
-              <td><Button onClick={DeleteProduct} id={item.id} variant='outline-danger'>Delete</Button>{''}</td>
+              <td><Button onClick={editProduct} id={item.id} variant='outline-primary'>Edit</Button>{''}</td>
+              <td><Button onClick={deleteProduct} id={item.id} variant='outline-danger'>Delete</Button>{''}</td>
             </tr>
           ))}
         </tbody>
@@ -75,4 +75,4 @@ const AdminCollections = () => {
   );
 }
 
-export default AdminCollections;
+export default AdminCollection;

@@ -10,18 +10,17 @@ function SignUp() {
 
   const Navigate = useNavigate();
 
-  const add = useContext(Context);
-  const {signup, setSignup} = add;
+  const {signup, setSignup} = useContext(Context);
   const inputRef = useRef();
+
   
-  const HandleSubmit = () => {
+  const handleSubmit = () => {
 
     const username = inputRef.current.user.value;
     const email = inputRef.current.email.value;
     const password = inputRef.current.password.value;
     const confirmpassword = inputRef.current.confirmpwd;
     setSignup([...signup,{username, email, password, confirmpassword}]);
-    console.log(signup);
 
     Navigate('/login');
   }
@@ -62,7 +61,7 @@ function SignUp() {
       <Form.Check type="checkbox" label="Check me out" />
     </Form.Group>
 
-    <Button variant="outline-primary" type="submit" onClick={HandleSubmit}>Submit</Button><br/><br/>
+    <Button variant="outline-primary" type="submit" onClick={handleSubmit}>Submit</Button><br/><br/>
     <label>If you have already an account ?</label><Link to='/login'> Login</Link>
 
     </Form>

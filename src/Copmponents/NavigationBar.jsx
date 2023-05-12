@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -7,15 +6,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BsHouseDoorFill, BsCartPlusFill, BsPersonLinesFill } from "react-icons/bs";
 import { useContext } from 'react';
 import { Context } from './Context';
+import { Button } from 'react-bootstrap';
 
 
 function NavigationBar() {
 
   const Navigate = useNavigate();
+
   const {auth} = useContext(Context);
 
+  const {setSearch} = useContext(Context);
 
-  const MyCart = () => {
+
+  const myCart = () => {
 
     if(auth) {
       Navigate('/mycart')
@@ -27,9 +30,11 @@ function NavigationBar() {
 
   }
 
-  const SearchHandle = (e) => {
+  const searchHandle = (e) => {
     
-    console.log(e.target.value);
+    setSearch(e.target.value);
+    Navigate('/search');
+
   }
 
 
@@ -51,24 +56,24 @@ function NavigationBar() {
           <Nav.Link as={Link} to='/women'>WOMEN</Nav.Link>
           <Nav.Link as={Link} to='/kids'>KIDS</Nav.Link>
           <Nav.Link as={Link} to='/sports'>SPORTS</Nav.Link>          
-          <Nav.Link as={Link} to='/collections'>COLLECTIONS</Nav.Link>
+          <Nav.Link as={Link} to='/collection'>COLLECTION</Nav.Link>
           <Nav.Link as={Link} to='/adminbar'>ADMIN</Nav.Link>
         </Nav>
          
         <Form className="d-flex">
-          <Form.Control
-            onChange={SearchHandle}
+          <Form.Control 
+            onChange={searchHandle}
             type="search"
-            placeholder="Search"
+            placeholder="Search Brand"
             className="me-2"
             aria-label="Search"
-            name='searchname'
           />
+          <Button variant="outline-secondary">Search</Button>
         </Form>
 
         <Nav>
           <Nav.Link as={Link} to='/'><BsHouseDoorFill/></Nav.Link>
-          <Nav.Link onClick={MyCart}><BsCartPlusFill/></Nav.Link>
+          <Nav.Link onClick={myCart}><BsCartPlusFill/></Nav.Link>
           <Nav.Link as={Link} to='/login'><BsPersonLinesFill/></Nav.Link>
         </Nav> 
         
