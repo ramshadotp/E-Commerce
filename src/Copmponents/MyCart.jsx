@@ -16,6 +16,20 @@ const MyCart = () => {
     setCart(balanceData);
   }
 
+
+  const decreaseQty = (id) => {
+    
+    const newQty = cart.map((item)=>item.id===id && item.qty>1 ? {...item, qty:item.qty-1} : item);
+    setCart(newQty)
+  }
+
+
+  const increaseQty = (id) => {
+    
+    const newQty = cart.map((item)=>item.id===id ? {...item, qty:item.qty+1} : item);
+    setCart(newQty)
+  }
+
       
   return (
  
@@ -36,12 +50,12 @@ const MyCart = () => {
             <Card.Body style={{textAlign: 'center'}}>
               <Card.Title>{item.brand}</Card.Title>
               <Card.Text>{item.type}</Card.Text>
-              <h6>Price: ₹ {item.price}</h6>
+              <h6>Price: ₹ {item.price*item.qty}</h6>
               <div>
                 <p>Qty:
-                  <Button className='m-1' variant='outline-primary'>-</Button>
+                  <Button onClick={()=>decreaseQty(item.id)} className='m-1' variant='outline-primary'>-</Button>
                   {item.qty}
-                  <Button className='m-1' variant='outline-primary'>+</Button>
+                  <Button onClick={()=>increaseQty(item.id)} className='m-1' variant='outline-primary'>+</Button>
                 </p>
               </div>
 

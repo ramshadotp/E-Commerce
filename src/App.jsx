@@ -57,8 +57,6 @@ function App() {
 
   const [search, setSearch] = useState()
 
-  const [adsearch, setAdsearch] = useState()
-
 
   const data = {
     
@@ -78,10 +76,7 @@ function App() {
     setAuth,
 
     search,
-    setSearch,
-
-    adsearch,
-    setAdsearch
+    setSearch
   }
   
 
@@ -105,15 +100,14 @@ function App() {
           <Route path='/mycart' element={<MyCart/>}/> 
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/signup' element={<SignUp/>}/>
-          <Route path='/adminbar' element={<AdminBar/>}/>
           <Route path='/usersearch' element={<UserSearch/>}/>
+          <Route path='/adminbar' element={<AdminBar/>}/>
 
           <Route element={<AdminBar/>}>
             <Route path='/adminbar/adminusers' element={<AdminUsers/>}/>
             <Route path='/adminbar/admincollection' element={<AdminCollection/>}/>
             <Route path='/adminbar/adminaddproducts' element={<AdminAddProducts/>}/>
             <Route path='/adminbar/adminedit' element={<AdminEdit/>}/>
-            <Route path='/adminbar/adminsearch' element={<AdminSearch/>}/>
           </Route>
           
         </Routes>

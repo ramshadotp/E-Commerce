@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 
 const AdminSearch = () => {
 
-  const {products, adsearch} = useContext(Context);
+  const {products, search} = useContext(Context);
 
 
   return (
@@ -19,10 +19,10 @@ const AdminSearch = () => {
 
           {products.filter((val) => {
 
-            if(adsearch ===" "){
+            if(search ===" "){
               return val;
             }
-            else if(val.brand.toLowerCase().includes(adsearch.toLowerCase())){
+            else if(val.brand.toLowerCase().includes(search.toLowerCase())){
               return val;
             }else{
               return false;
