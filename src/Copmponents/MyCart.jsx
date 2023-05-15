@@ -18,10 +18,9 @@ const MyCart = () => {
 
       
   return (
-
+ 
     <div>
       <h1 style={{textAlign: 'center'}} className='bg-info text-white'><BsCart4/> MY CART</h1><br/>
-      <h2>My Cart</h2><br/>
 
       <div className='d-flex-column container'>
 

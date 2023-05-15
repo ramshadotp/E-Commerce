@@ -5,8 +5,8 @@ import { Card } from 'react-bootstrap';
 
 const UserSearch = () => {
 
-  const {search, products} = useContext(Context)
-
+  const {products, search} = useContext(Context)
+  
 
   return (
 

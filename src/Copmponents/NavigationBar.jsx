@@ -21,7 +21,7 @@ function NavigationBar() {
   const myCart = () => {
 
     if(auth) {
-      Navigate('/mycart')
+      Navigate('/mycart');
 
     }else{
      alert('Please Login');
@@ -33,7 +33,7 @@ function NavigationBar() {
   const searchHandle = (e) => {
     
     setSearch(e.target.value);
-    Navigate('/search');
+    Navigate('/usersearch');
 
   }
 

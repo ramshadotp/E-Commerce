@@ -11,7 +11,7 @@ function AdminBar () {
 
   const Navigate = useNavigate();
 
-  const {setSearch} = useContext(Context);
+  const {setAdsearch} = useContext(Context);
   
 
   const handleSubmit = () => {
@@ -22,8 +22,8 @@ function AdminBar () {
 
   const searchHandle = (e) => {
     
-    setSearch(e.target.value);
-    Navigate('/search');
+    setAdsearch(e.target.value);
+    Navigate('/adminsearch');
 
   }
 

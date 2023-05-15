@@ -18,15 +18,16 @@ const ViewDetails = () => {
 
     if(auth) {
 
-    const[newData] = data;
-    const duplicate = cart.filter((item)=>item.id==id);
+      const[newData] = data;
+      const duplicate = cart.filter((item)=>item.id==id);
 
-    if(duplicate.length>0){
-      return alert ("Product already exists");
-    }else{
-      setCart (prevState => [...prevState, newData]);
-      alert("Product added to Cart");
-    }
+      if(duplicate.length>0){
+        return alert ("Product already exists");
+      
+      }else{
+        setCart (prevState => [...prevState, newData]);
+        alert("Product added to Cart");
+      }
 
     }else{
       alert('Please Login');
@@ -34,6 +35,7 @@ const ViewDetails = () => {
     }
 
   }
+
   
   return (
 
