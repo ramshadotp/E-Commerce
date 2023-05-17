@@ -11,7 +11,7 @@ const ViewDetails = () => {
 
   const {cart, setCart, auth} = useContext(Context);
   const {id} = useParams();
-  const data = ProductsData.filter((item)=>item.id==id); 
+  const data = ProductsData.filter((item)=>item.id==id);
 
 
   const myCart = () => {
