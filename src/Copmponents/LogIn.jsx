@@ -18,9 +18,9 @@ function LogIn() {
 
   const handleSubmit = () => {
 
-    const user = InputRef.current.user.value;
+    const email = InputRef.current.email.value;
     const pwd = InputRef.current.password.value;
-    const details = signup.filter((item)=>item.username===user&&item.password===pwd)
+    const details = signup.filter((item)=>item.email===email&&item.password===pwd)
     setAuth(true)
 
     if(details.length>0){
@@ -43,8 +43,8 @@ function LogIn() {
 
         <Form ref={InputRef} onSubmit={(e)=>e.preventDefault()}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>User Name</Form.Label>
-            <Form.Control name='user' placeholder="Username" />
+            <Form.Label>Email</Form.Label>
+            <Form.Control name='email' placeholder="Email" />
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 

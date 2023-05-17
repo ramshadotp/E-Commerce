@@ -22,7 +22,6 @@ import { ProductsData } from './Copmponents/Products/ProductsData';
 import AdminAddProducts from './Copmponents/Admin/AdminAddProducts';
 import AdminEdit from './Copmponents/Admin/AdminEdit';
 import UserSearch from './Copmponents/UserSearch';
-import AdminSearch from './Copmponents/Admin/AdminSearch';
 
 
 
@@ -56,6 +55,8 @@ function App() {
 
   const [search, setSearch] = useState()
 
+  const [adminSearch, setAdminSearch] = useState()
+
 
   const data = {
     
@@ -75,7 +76,10 @@ function App() {
     setAuth,
 
     search,
-    setSearch
+    setSearch,
+
+    adminSearch,
+    setAdminSearch
   }
   
 
@@ -107,7 +111,6 @@ function App() {
             <Route path='/adminbar/admincollection' element={<AdminCollection/>}/>
             <Route path='/adminbar/adminaddproducts' element={<AdminAddProducts/>}/>
             <Route path='/adminbar/adminedit' element={<AdminEdit/>}/>
-            <Route path='/adminbar/adminsearch' element={<AdminSearch/>}/>
           </Route>
           
         </Routes>

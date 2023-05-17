@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BsHouseDoorFill, BsCartPlusFill, BsPersonLinesFill } from "react-icons/bs";
 import { useContext } from 'react';
 import { Context } from './Context';
-import { Button } from 'react-bootstrap';
 
 
 function NavigationBar() {

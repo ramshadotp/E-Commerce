@@ -45,7 +45,7 @@ const AdminBar = () => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
 
-          <Form className="adm-src">
+          <Form className="adm-bar">
             <Form.Control 
               onChange={searchHandle}
               type="search"

@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 
 const UserSearch = () => {
 
-  const {products, search} = useContext(Context)
+  const {products, search} = useContext(Context);
   
 
   return (
@@ -19,34 +19,34 @@ const UserSearch = () => {
 
           {products.filter((val) => {
 
-        if(search ===" "){
-          return val;
-        }
-        else if(val.brand.toLowerCase().includes(search.toLowerCase())){
-          return val;
-        }else{
-          return false;
-        }
+            if(search ===" "){
+              return val;
+            }
+            else if(val.brand.toLowerCase().includes(search.toLowerCase())){
+              return val;
+            }else{
+              return false;
+            }
 
-      })
+          })
     
-      .map((item)=>(
+          .map((item)=>(
 
-        <Card
-        className="shadow-lg p-3 mb-5 bg-body-tertiary rounded" 
-        style={{ width: '21.5rem' }}
-        >
-          <Card.Img variant='top' src={item.image}/>
-          <Card.Body style={{textAlign: 'center'}}>
-            <Card.Title>{item.brand}</Card.Title>
-            <Card.Text>{item.type}</Card.Text> 
-            <h6>Price: ₹ {item.price}</h6>
-          </Card.Body>
-        </Card>
+            <Card
+              className="shadow-lg p-3 mb-5 bg-body-tertiary rounded" 
+              style={{ width: '21.5rem' }}
+            >
+              <Card.Img variant='top' src={item.image}/>
+              <Card.Body style={{textAlign: 'center'}}>
+                <Card.Title>{item.brand}</Card.Title>
+                <Card.Text>{item.type}</Card.Text> 
+                <h6>Price: ₹ {item.price}</h6>
+              </Card.Body>
+              </Card>
 
-      ))
+          ))
 
-      }
+          }
         </div>
       </div>
     </div>
