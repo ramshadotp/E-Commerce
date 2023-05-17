@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProductsData } from './Products/ProductsData';
 import { Card, Button } from 'react-bootstrap';
 import { Context } from './Context';
@@ -45,8 +45,8 @@ const ViewDetails = () => {
 
         <div className='d-flex-column container'>
 
-    
         {data.map((item)=>(
+
           <Card
             className="shadow-lg p-3 mb-5 bg-body-tertiary rounded" 
             style={{ width: '30rem' }}

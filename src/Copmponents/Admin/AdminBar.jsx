@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -8,11 +8,15 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import { Context } from '../Context';
 
 
 const AdminBar = () => {
 
   const Navigate = useNavigate();
+
+  const {setSearch} = useContext(Context);
   
 
   const handleSubmit = () => {
@@ -21,12 +25,12 @@ const AdminBar = () => {
 
   }
 
-  // const searchHandle = (e) => {
+  const searchHandle = (e) => {
     
-  //   setSearch(e.target.value);
-  //   Navigate('/adminbar/adminsearch');
+    setSearch(e.target.value);
+    Navigate('/adminbar/adminsearch');
 
-  // }
+  }
 
   return (
 
@@ -40,16 +44,27 @@ const AdminBar = () => {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
+
+          <Form className="adm-src">
+            <Form.Control 
+              onChange={searchHandle}
+              type="search"
+              placeholder="Search"
+              className="me-6"
+              aria-label="Search"
+            />
+          </Form>
+
             <NavLink onClick={handleSubmit} activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="user">USERS</CDBSidebarMenuItem>
-            </NavLink>adminusers
+            </NavLink>
             <NavLink exact to="/adminbar/admincollection" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="bars">COLLECTION</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/adminbar/adminaddproducts" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="shopping-cart">ADD PRODUCTS</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/adminbar" activeClassName="activeClicked">
+            <NavLink activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="chart-line">REVENUE</CDBSidebarMenuItem>
             </NavLink>
 
@@ -70,6 +85,7 @@ const AdminBar = () => {
       </CDBSidebar>
       <Outlet/>
     </div>
+
   );
 };
 

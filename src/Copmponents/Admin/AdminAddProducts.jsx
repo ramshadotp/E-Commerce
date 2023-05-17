@@ -25,7 +25,7 @@ const AdminAddProducts = () => {
       const type = inputRef.current.Type.value;
       setProducts([...products,{id,brand,price,qty,img,type}]);
 
-      Navigate('/adminbar/admincollections');
+      Navigate('/adminbar/admincollection');
   }
 
 

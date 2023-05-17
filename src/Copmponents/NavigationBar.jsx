@@ -68,7 +68,6 @@ function NavigationBar() {
             className="me-2"
             aria-label="Search"
           />
-          <Button variant="outline-secondary">Search</Button>
         </Form>
 
         <Nav>

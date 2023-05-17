@@ -26,7 +26,6 @@ import AdminSearch from './Copmponents/Admin/AdminSearch';
 
 
 
-
 function App() {
 
 
@@ -108,6 +107,7 @@ function App() {
             <Route path='/adminbar/admincollection' element={<AdminCollection/>}/>
             <Route path='/adminbar/adminaddproducts' element={<AdminAddProducts/>}/>
             <Route path='/adminbar/adminedit' element={<AdminEdit/>}/>
+            <Route path='/adminbar/adminsearch' element={<AdminSearch/>}/>
           </Route>
           
         </Routes>
